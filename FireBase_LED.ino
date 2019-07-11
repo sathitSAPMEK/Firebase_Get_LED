@@ -34,13 +34,13 @@ void setup() {
  
 
 void loop() {
-  if(Firebase.getString(firebaseData,"/LED/status/status")){
-  Serial.println(firebaseData.stringData());
+  if(Firebase.getString(firebaseData,"/LED/status/status")){ //ดึงข้อมูลจากโฟล์เดอร์LED>>status>>status เป็นค่าข้อมูลชนิดString
+  Serial.println(firebaseData.stringData()); //เเสดงค่าข้อมูลเป็นชนิดString
   }
-  if(firebaseData.stringData()=="ON"){
-    digitalWrite(LED,HIGH);
+  if(firebaseData.stringData()=="ON"){ //ถ้าอ่านค่า"ON"ให้เข้ามาทำงานในเงื่อนไขนี้
+    digitalWrite(LED,HIGH); //ให้ขาLEDเปิดไฟ
   }
-  else if(firebaseData.stringData()=="OFF"){
-    digitalWrite(LED,LOW);
+  else if(firebaseData.stringData()=="OFF"){//ถ้าอ่านค่า"OFF"ให้เข้ามาทำงานในเงื่อนไขนี้
+    digitalWrite(LED,LOW);//ให้ขาLEDปิดไฟ
   }
 }
